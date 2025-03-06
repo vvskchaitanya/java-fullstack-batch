@@ -22,11 +22,15 @@ public class FileCreationExample {
             name += ".txt";
         }
 
+        // Create new file
         File file = new File(name);
 
         try {
 
+            System.out.println("Creating new file "+ name);
             file.createNewFile();
+
+            System.out.println("Created new file "+ name +" path is "+file.getAbsolutePath());
 
         } catch (IOException e) {
             System.out.println("Unable to create the new file "+ name);
