@@ -22,6 +22,7 @@ public class FileReaderExample {
         File file = new File(name);
 
         try(FileReader reader=new FileReader(file)){
+            
             int c = reader.read();
             System.out.println("Reading File :"+name);
 
