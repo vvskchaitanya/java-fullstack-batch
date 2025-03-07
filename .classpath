@@ -3,5 +3,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="chaitanya/src"/>
 	<classpathentry kind="src" path="sudheer"/>
+	<classpathentry kind="src" path="projects/MovieHub/src"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
