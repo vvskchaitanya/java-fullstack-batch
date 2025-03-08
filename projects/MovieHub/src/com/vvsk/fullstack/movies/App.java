@@ -13,7 +13,7 @@ public class App {
 
         // Print the movie object by fetching with name
 
-        Movie movie = movieService.getMovieByName("Inception");
+        Movie movie = movieService.getMovieByName("Pushpa: The Rise");
 
         println(movie);
         
