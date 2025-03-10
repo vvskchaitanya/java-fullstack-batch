@@ -1,0 +1,7 @@
+{
+    "java.project.sourcePaths": ["chaitanya/src"],
+    "java.project.outputPath": "chaitanya/bin",
+    "java.project.referencedLibraries": [
+        "lib/**/*.jar"
+    ]
+}
