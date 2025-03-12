@@ -7,7 +7,7 @@ public class VirtualThreadExample {
         
         Thread normalThread = new Thread(new MyThread(), "NormalThread");
 
-        Thread virtualThread = Thread.ofVirtual().start(new MyThread());
+        Thread virtualThread = Thread.ofVirtual().name("VirtualThread").start(new MyThread());
 
         normalThread.start();
 
