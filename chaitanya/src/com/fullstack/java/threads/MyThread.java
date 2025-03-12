@@ -17,7 +17,7 @@ public class MyThread extends Thread{
     }
 
     public void run(){
-        System.out.println("Thread is in running state: "+this.getName());
+        System.out.println("Thread is in running state: "+this.getName()+" "+this.getState());
 
         for(int i=start;i<=end;i++){
             System.out.println(this.getName()+" "+i);
