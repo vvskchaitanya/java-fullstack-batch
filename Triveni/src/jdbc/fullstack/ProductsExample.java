@@ -14,6 +14,8 @@ public class ProductsExample {
         prodService.update("John", 200.34);
         prodService.fetch();
         prodService.delete(2);
+
+        
     }
 
 }

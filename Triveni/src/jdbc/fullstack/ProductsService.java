@@ -8,8 +8,8 @@ import java.sql.SQLException;
 
 public class ProductsService {
     private static final String JDBC_URL = "jdbc:mysql://localhost:3306/fullstack";
-    private static final String JDBC_USER = "root";
-    private static final String JDBC_PASSWORD = "Idivya1@3";
+    private static final String JDBC_USER = "myusername";
+    private static final String JDBC_PASSWORD = "mypassword";
 
     public ProductsService(){
         try{
