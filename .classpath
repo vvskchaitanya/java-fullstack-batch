@@ -4,5 +4,6 @@
 	<classpathentry kind="src" path="chaitanya/src"/>
 	<classpathentry kind="src" path="sudheer"/>
 	<classpathentry kind="src" path="projects/MovieHub/src"/>
+	<classpathentry kind="src" path="Triveni/src/jdbc/fullstack"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
