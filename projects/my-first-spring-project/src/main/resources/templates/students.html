@@ -1,0 +1,10 @@
+<h1>List of Students</h1>
+
+<table border="1">
+    <tr><th>Name</th><th>Roll Number</th><th>Score</th></tr>
+    <tr th:each="student:${students}">
+        <td th:text="${student.name}"></td>
+        <td th:text="${student.rollNumber}">Roll Number</td>
+        <td th:text="${student.score}">Score</td>
+    </tr>
+</table>
