@@ -1,0 +1,19 @@
+<h1>List of Employees</h1>
+
+<table border=""1>
+    <tr><th>Employee_Id</th><th>Employee_Name</th><th>Department</th><th>Email</th></tr>
+
+    <tr th:each="employee:${employees}">
+        <td th:text="${employee.id}"></td>
+        <td th:text="${employee.name}"></td>
+        <td th:text="${employee.department}"></td>
+        <td th:text="${employee.email}"></td>
+
+    </tr>
+</table>
+
+
+<!-- <p th:text="${employees.id}"></p>
+<p th:text="${employees.name}"></p>
+<p th:text="${employees.department}"></p>
+<p th:text="${employees.email}"></p> -->
