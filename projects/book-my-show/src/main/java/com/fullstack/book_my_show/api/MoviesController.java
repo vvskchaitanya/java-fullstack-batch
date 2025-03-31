@@ -14,6 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fullstack.book_my_show.entity.Movie;
 import com.fullstack.book_my_show.service.MoviesService;
 
+/**
+ * MoviesController is REST API where user can add, update, fetch and delete the movies from movies database
+ */
+
 @RestController
 @RequestMapping("/movies")
 public class MoviesController {
@@ -25,6 +29,10 @@ public class MoviesController {
         this.moviesService = moviesService;
     }
 
+    /**
+     * Get Method will return all movies from movies database
+     * @return List<Movie>
+     */
     @GetMapping
     public List<Movie> get(){
         return this.moviesService.get();
