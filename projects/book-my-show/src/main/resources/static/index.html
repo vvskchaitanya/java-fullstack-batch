@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies List</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="mb-4">Movies List
+            <a style="float:right" href="./logout">Logout</a>
+        </h2>
+        <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addMovieModal">Add Movie</button>
+        
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Language</th>
+                    <th>Release Year</th>
+                </tr>
+            </thead>
+            <tbody id="moviesTableBody">
+                <!-- Movies will be loaded here dynamically -->
+            </tbody>
+        </table>
+    </div>
+    
+    <!-- Add Movie Modal -->
+    <div class="modal fade" id="addMovieModal" tabindex="-1" aria-labelledby="addMovieModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addMovieModalLabel">Add New Movie</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="addMovieForm">
+                        <div class="mb-3">
+                            <label for="movieName" class="form-label">Movie Name</label>
+                            <input type="text" class="form-control" id="movieName" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="movieLanguage" class="form-label">Language</label>
+                            <input type="text" class="form-control" id="movieLanguage" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="releaseYear" class="form-label">Release Year</label>
+                            <input type="number" class="form-control" id="releaseYear" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Add Movie</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        $(document).ready(function() {
+            // Load movies on page load
+            function loadMovies() {
+                $.get("/movies", function(data) {
+                    let tableBody = "";
+                    data.forEach(movie => {
+                        tableBody += `<tr>
+                            <td>${movie.id}</td>
+                            <td>${movie.name}</td>
+                            <td>${movie.language}</td>
+                            <td>${movie.releaseYear}</td>
+                        </tr>`;
+                    });
+                    $("#moviesTableBody").html(tableBody);
+                });
+            }
+            
+            loadMovies();
+            
+            // Add movie event
+            $("#addMovieForm").submit(function(event) {
+                event.preventDefault();
+                let newMovie = {
+                    name: $("#movieName").val(),
+                    language: $("#movieLanguage").val(),
+                    releaseYear: parseInt($("#releaseYear").val())
+                };
+                
+                $.ajax({
+                    url: "/movies",
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify(newMovie),
+                    success: function() {
+                        $("#addMovieModal").modal("hide");
+                        loadMovies(); // Reload movies after adding
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
