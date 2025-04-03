@@ -28,7 +28,11 @@ public class UserRegistrationController {
 
         user.setPassword(encoder.encode(user.getPassword()));
 
-        return userRepository.save(user);
+        user = userRepository.save(user);
+
+        user.setPassword(null);
+
+        return user;
 
     }
 

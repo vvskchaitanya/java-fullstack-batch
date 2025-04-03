@@ -1,14 +1,12 @@
 package com.fullstack.find_capital.dto;
 
-import java.util.List;
-
-public class CountryCapitalResponse {
+public class CountryCapitalResponse<U> {
 
     private boolean error;
 
     private String msg;
 
-    private List<CountryCapitalObject> data;
+    private U data;
 
     public boolean isError() {
         return error;
@@ -26,11 +24,11 @@ public class CountryCapitalResponse {
         this.msg = msg;
     }
 
-    public List<CountryCapitalObject> getData() {
+    public U getData() {
         return data;
     }
 
-    public void setData(List<CountryCapitalObject> data) {
+    public void setData(U data) {
         this.data = data;
     }
 

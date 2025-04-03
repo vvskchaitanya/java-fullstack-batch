@@ -6,6 +6,10 @@ public class CountryCapitalObject {
 
     private String capital;
 
+    public String iso2;
+
+    public String iso3;
+
     public String getName() {
         return name;
     }
