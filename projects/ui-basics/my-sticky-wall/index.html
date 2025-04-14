@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>My Sticky Wall</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+
+<div class="container-fluid p-2 bg-danger text-white text-center">
+  <h1 id="title">My Sticky Wall</h1>
+  <p>You can add your sticky notes for your daily tasks</p> 
+  <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">Add New Notes</button>
+  <button class="btn btn-primary" onclick="updateBackground()">Update Sticy Notes Background</button>
+</div>
+  
+<div class="container mt-5">
+  <div class="row" id="wall">
+    
+  </div>
+</div>
+
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">New Sticy Notes</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <textarea class="w-100" id="content" rows="10" placeholder="Enter the task details here ..."></textarea>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary" onclick="add()" data-bs-dismiss="modal">Add</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
+<script>
+    $(document).ready(function () {
+        
+    });
+
+    add=function(){
+        $("#wall").first().append("<div class=\"col-3 m-2\" style=\"min-height:150px;background:lightgrey\" >"+document.getElementById("content").value+"</div>" );
+    }
+
+    updateBackground=function (){
+        const colors = ['#FF5733', '#33FF57', '#3357FF', '#FF33A1', '#F3FF33', '#33FFF6'];
+
+        $(".col-3").each((i, el)=>{
+            var randomIndex = Math.floor(Math.random() * colors.length);
+            $(el).css("background-color", colors[randomIndex]);
+        });
+    }
+
+
+</script>
+
+</body>
+</html>
