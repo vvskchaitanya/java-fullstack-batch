@@ -1,0 +1,23 @@
+<div *ngIf="movie" class="movie-details container mt-5">
+  <div class="card shadow-lg">
+    <div class="card-header bg-primary text-white">
+      <h1 class="card-title text-center">{{ movie.name }}</h1>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-md-4 text-center">
+          <img [src]="movie.img" alt="{{ movie.name }}" class="img-fluid rounded movie-poster" />
+        </div>
+        <div class="col-md-8">
+          <p><strong>Year:</strong> {{ movie.year }}</p>
+          <p><strong>Rating:</strong> <span class="badge bg-success">{{ movie.rating }}</span></p>
+          <p><strong>Cast:</strong> {{ movie.cast.join(', ') }}</p>
+          <p><strong>Plot:</strong> {{ movie.plot }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer text-center">
+      <button class="btn btn-primnray" (click)="bookTicket()">Book Now</button>
+    </div>
+  </div>
+</div>
