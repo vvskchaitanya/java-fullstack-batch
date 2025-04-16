@@ -1,20 +1,20 @@
 import { NgFor } from '@angular/common';
 import { Component } from '@angular/core';
-import { Movie } from '../../app.models';
-import { MovieService } from '../../services/movie.service';
-import { Router } from '@angular/router';
+import { Movie } from '../app.models';
+import { MovieService } from '../services/movie.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-movies',
-  imports: [NgFor],
+  imports: [NgFor,RouterLink],
   templateUrl: './movies.component.html',
   styleUrl: './movies.component.css'
 })
 export class MoviesComponent {
 
   movies: Movie[] = [];
-    
-  constructor(private moviesService: MovieService,private router:Router) { 
+
+  constructor(private moviesService: MovieService) {
     moviesService.movies.subscribe((data: Movie[]) => {
       this.movies = data;
     },error =>{
@@ -23,8 +23,8 @@ export class MoviesComponent {
     );
   }
 
-    bookTicket(movie: any) {
-        this.moviesService.selectedMovie = movie;
-        this.router.navigate(['/movie']);
-    }
+  bookTicket(movie: Movie) {
+    console.log('Booking ticket for movie:', movie.name);  
+  }
+
 }

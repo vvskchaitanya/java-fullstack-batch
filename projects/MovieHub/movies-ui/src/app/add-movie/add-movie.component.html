@@ -1,0 +1,43 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Add Movie</h2>
+    <form>
+      <!-- Movie Name -->
+      <div class="mb-3">
+        <label for="name" class="form-label">Movie Name</label>
+        <input type="text" class="form-control" id="name" placeholder="Enter movie name" required [(ngModel)]="movie.name" name="name">
+      </div>
+  
+      <!-- Movie Image URL -->
+      <div class="mb-3">
+        <label for="img" class="form-label">Image URL</label>
+        <input type="url" class="form-control" id="img" placeholder="Enter image URL" required [(ngModel)]="movie.img" name="img">
+      </div>
+  
+      <!-- Cast -->
+      <div class="mb-3">
+        <label for="cast" class="form-label">Cast</label>
+        <input type="text" class="form-control" id="cast" placeholder="Enter cast (comma-separated)" required [(ngModel)]="movie.cast" name="cast">
+      </div>
+  
+      <!-- Year -->
+      <div class="mb-3">
+        <label for="year" class="form-label">Year</label>
+        <input type="number" class="form-control" id="year" placeholder="Enter release year" required [(ngModel)]="movie.year" name="year">
+      </div>
+  
+      <!-- Rating -->
+      <div class="mb-3">
+        <label for="rating" class="form-label">Rating</label>
+        <input type="number" step="0.1" class="form-control" id="rating" placeholder="Enter rating (e.g., 8.5)" required [(ngModel)]="movie.rating" name="rating">
+      </div>
+  
+      <!-- Plot -->
+      <div class="mb-3">
+        <label for="plot" class="form-label">Plot</label>
+        <textarea class="form-control" id="plot" rows="3" placeholder="Enter movie plot" required [(ngModel)]="movie.plot"></textarea>
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit" (click)="addMovie()" class="btn btn-primary">Add Movie</button>
+    </form>
+  </div>
