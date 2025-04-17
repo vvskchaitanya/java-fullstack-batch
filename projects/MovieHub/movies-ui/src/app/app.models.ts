@@ -7,3 +7,10 @@ export interface Movie{
     rating: number;
     plot: string;
 }
+
+export interface Booking{
+    id: number | null;
+    name:string;
+    date: string;
+    seats: number;
+}
