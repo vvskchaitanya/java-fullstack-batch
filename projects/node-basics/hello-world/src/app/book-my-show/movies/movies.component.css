@@ -1,0 +1,12 @@
+.mv-name{
+    font-size: 25px;
+    color:blue;
+}
+
+.mv-year{
+    color:red;
+}
+
+.card > img{
+    height: 200px;
+}

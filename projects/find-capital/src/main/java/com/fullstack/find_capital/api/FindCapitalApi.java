@@ -22,9 +22,16 @@ public class FindCapitalApi {
     @Qualifier("countryCapitalServiceNew")
     ICountryCapitalService countryCapitalService2;
 
-    @GetMapping
-    public Payload findCapital(@RequestParam(name="country",required = true) String country){
+    @GetMapping("/v1")
+    public Payload findCapitalV1(@RequestParam(name="country",required = true) String country){
         String capital = countryCapitalService1.getCapital(country);
+
+        return capital!=null ? new Payload(country, capital, true) : new Payload(country, capital, false);
+    }
+
+    @GetMapping("/v2")
+    public Payload findCapitalV2(@RequestParam(name="country",required = true) String country){
+        String capital = countryCapitalService2.getCapital(country);
 
         return capital!=null ? new Payload(country, capital, true) : new Payload(country, capital, false);
     }

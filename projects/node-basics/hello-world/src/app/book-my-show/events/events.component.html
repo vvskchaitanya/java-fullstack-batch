@@ -1,0 +1,12 @@
+<div class="row p-4">
+    <h4>Events</h4>
+    <div class="row">
+        <div *ngFor="let event of events" class="col-4">
+            <div class="card m-3 p-3">
+                <img src="{{event.img}}">
+                <p class="mv-name">{{event.name}}</p>
+                <button class="btn btn-primary" (click)="register(event)">Register Now</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,8 @@
+I need a page where I can add my sticky notes that I want to perform this day
+
+User Requirements:
+
+1) Page should have title - My Sticky Wall and should show current date time 
+2) User should be provided with an option to add sticky notes
+3) User should have option to delete sticky notes
+4) User should have option to change the color of added sticky notes dynamically

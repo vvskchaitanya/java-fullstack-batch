@@ -7,6 +7,7 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -27,9 +28,11 @@ public class CountryCapitalServiceNew implements ICountryCapitalService{
     public String getCapital(String country) {
         RestTemplate restTemplate = new RestTemplate();
 
-        ResponseEntity<String> responseEntity = restTemplate.getForEntity(countryCapitalEndpoint+"/q?country="+country, String.class);
+        try{
+            ResponseEntity<String> responseEntity = restTemplate.getForEntity(countryCapitalEndpoint+"/q?country="+country, String.class);
 
-        ObjectMapper objectMapper = new ObjectMapper();
+
+            ObjectMapper objectMapper = new ObjectMapper();
 
         objectMapper.enable(Feature.IGNORE_UNKNOWN);
 
@@ -44,6 +47,14 @@ public class CountryCapitalServiceNew implements ICountryCapitalService{
         } catch(IOException ioe){
             ioe.printStackTrace();
         }
+
+        }catch(RestClientException rce){
+            rce.printStackTrace();
+            return null;
+        }
+        
+
+        
         
         return null;
     }
